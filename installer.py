@@ -42,11 +42,44 @@ def installConfig(url, hash=None):
                 try: shutil.rmtree(xbmc.translatePath(os.path.join('special://home', 'addons')))
                 except: pass
 
-                # Rename userdata folder
+                # Duplicate userdata folder
+                dp.update(100, "Duplicating 'userdata' folder",
+                    '',
+                    'Please wait...')
                 try:
-                    userdata = xbmc.translatePath(os.path.join('special://', 'userdata'))[:-1]
-                    os.rename(userdata, userdata+'.old')
-                except: pass
+                    ud = xbmc.translatePath(os.path.join('special://home', 'userdata'))
+                    userdata = ud.replace('\\','/')
+                    shutil.copytree(userdata, userdata+'.old')
+                    try:
+                        os.remove(userdata+"/advancedsettings.xml")
+                        kodi.log(userdata+"/advancedsettings.xml")
+                    except: pass
+                    try:
+                        os.remove(userdata+"/favourites.xml")
+                        kodi.log(userdata+"/favourites.xml")
+                    except: pass
+                    try:
+                        os.remove(userdata+"/guisettings.xml")
+                        kodi.log(userdata+"//guisettings.xml")
+                    except: pass
+                    try:
+                        os.remove(userdata+"/sources.xml")
+                        kodi.log(userdata+"/sources.xml")
+                    except: pass
+                    try:
+                        os.remove(userdata+"/Database/MyMusic*.db")
+                        kodi.log(userdata+"/Database/MyMusic*.db")
+                    except: pass
+                    try:
+                        os.remove(userdata+"/Database/MyVideos*.db")
+                        kodi.log(userdata+"/Database/MyVideos*.db")
+                    except: pass
+                    try:
+                        shutil.rmtree(userdata+"/addon_data/")
+                        kodi.log(userdata+"/addon_data/")
+                    except: pass
+                except Exception, e:
+                    kodi.log(str(e))
 
                 try:
                     # Extract File
@@ -81,9 +114,10 @@ def installConfig(url, hash=None):
                     except: pass
 
                 # Copy addon settings back into place
-                try: shutil.copyfile(userdata+".old/addon_data/"+kodi.addon_id+"/settings.xml",
-                                    userdata+"/addon_data/"+kodi.addon_id+"/settings.xml")
-                except: pass
+                if kodi.get_setting('keepaddon') == 'true':
+                    try: shutil.copyfile(userdata+".old/addon_data/"+kodi.addon_id+"/settings.xml",
+                                        userdata+"/addon_data/"+kodi.addon_id+"/settings.xml")
+                    except: pass
 
                 # Delete old 'userdata' folder
                 dp.update(100, "Cleaning up",
