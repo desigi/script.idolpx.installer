@@ -385,25 +385,32 @@ def _download_background(filename, bytes_received, bytes_total):
         return percent
 
 def zip(_in, _out, exclusions):
-    zout = _out.split('/')[-1]
+    pout = _out.replace('\\','/')
+    zout = pout.split('/')[-1]
+    true_parent_folder = pout.replace(zout,'')
+    kodi.log('Source: ' +true_parent_folder)
     zip_file = zipfile.ZipFile(_out, 'w', zipfile.ZIP_DEFLATED)
     try:
         for zin in _in:
-            parent_folder = os.path.dirname(zin)
-            kodi.log('Source :'+parent_folder)
+            p_folder = os.path.dirname(zin)
+            parent_folder = p_folder.replace('\\','/')
             for root, folders, files in os.walk(zin):
+                r = root.replace('\\','/')
                 # Include all subfolders, including empty ones.
                 for folder_name in folders:
-                    absolute_path = os.path.join(root, folder_name)
-                    relative_path = absolute_path.replace(parent_folder + '/', '')
+                    foldern = folder_name.replace('\\','/')
+                    absolute_path = os.path.join(r, foldern)
+                    relative_path = absolute_path.replace(true_parent_folder, '')
                     if not any(e in relative_path for e in exclusions):
                         kodi.log("Adding '%s' to archive." % relative_path)
                         zip_file.write(absolute_path, relative_path)
                     else:
                         kodi.log("Excluding '%s' from the archive." % relative_path)
                 for file_name in files:
-                    absolute_path = os.path.join(root, file_name)
-                    relative_path = absolute_path.replace(parent_folder + '/', '')
+                    filen = file_name.replace('\\','/')
+                    abs_path = os.path.join(r, filen)
+                    absolute_path = abs_path.replace('\\','/')
+                    relative_path = absolute_path.replace(true_parent_folder, '')
                     if not any(e in relative_path for e in exclusions):
                         kodi.log("Adding '%s' to archive." % relative_path)
                         dp.update(100, 'Archiving: '+zout, 
