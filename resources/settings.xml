@@ -12,6 +12,7 @@
 		<setting id="keepsources" type="bool" label="Keep my Sources" default="true"/>
 		<setting id="keepvideos" type="bool" label="Keep my MyMusic DB" default="true"/>
 		<setting id="keepmusic" type="bool" label="Keep my MyVideos DB" default="true"/>
+	    	<setting id="keepaddon" type="bool" label="Keep my addon settings" default="true"/>
 		<setting type="sep"/>
 		<setting id="showadult" type="bool" label="Show Adult Content" default="false" visible="false"/>
 	</category>
