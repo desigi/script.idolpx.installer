@@ -3,8 +3,8 @@
 import xbmc, xbmcgui
 import os, sys, json, time
 
-from libs import requests
-from libs import kodi
+import requests
+from lib import kodi
 import installer
 
 def main():

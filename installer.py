@@ -3,8 +3,8 @@
 import xbmc, xbmcplugin, xbmcgui, xbmcaddon
 import sys, os, time, shutil, zipfile, hashlib, glob, json
 
-from libs import requests
-from libs import kodi
+import requests
+from lib import kodi
 
 window = xbmcgui.Window(10000)
 dp = xbmcgui.DialogProgress()

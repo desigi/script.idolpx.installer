@@ -1,8 +1,8 @@
 import xbmc, xbmcgui
 import os, json, sqlite3
 
-from libs import requests
-from libs import kodi
+import requests
+from lib import kodi
 from datetime import datetime
 import installer
 
