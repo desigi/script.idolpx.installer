@@ -6,7 +6,7 @@ The main functionality is working.  There are some features that still need to b
 ## Kodi Addon Setup
 
 1. Edit the "update_url" setting in "resources/settings.xml" to match your domain that you upload the server scripts to
-2. Enter the web server's basic authentication credentials in the "web_username" and "web_password" variables in "kodi/lib/kodi.py" (this is for access to the web app)
+2. Enter the web server's basic authentication credentials in the "web_username" and "web_password" variables in "kodi/lib/kodi.py" (this is to access the web app)
 3. Zip addon (Make sure the top level folder "script.idolpx.installer" is in the zip and the addon files are inside it.)
 4. Install addon in Kodi with "Install from zip file" option
 5. Configure all of your other addons the way you want them
