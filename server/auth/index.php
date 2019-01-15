@@ -74,7 +74,7 @@
 
 <div data-role="page" id="authorized">
 	<div data-role="header">
-		<h1>idolpx Installer</h1>
+		<h1>Kodi Build Installer</h1>
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#authorized">Authorized</a></li>
@@ -181,7 +181,7 @@
 
 <div data-role="page" id="blocked">
   <div data-role="header">
-    <h1>idolpx Installer</h1>
+    <h1>Kodi Build Installer</h1>
     <div data-role="navbar">
       <ul>
         <li><a href="#authorized">Authorized</a></li>
@@ -276,7 +276,7 @@
 
 <div data-role="page" id="unknown">
   <div data-role="header">
-    <h1>idolpx Installer</h1>
+    <h1>Kodi Build Installer</h1>
     <div data-role="navbar">
       <ul>
         <li><a href="#authorized">Authorized</a></li>

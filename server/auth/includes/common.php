@@ -16,7 +16,7 @@ function sendAlerts() {
 	//$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 	//$mail->Port = 587;                                    // TCP port to connect to
 
-	$mail->setFrom($alert_from, "idolpx Installer");
+	$mail->setFrom($alert_from, "Kodi Build Installer");
 	$mail->addAddress($alert_email, $alert_email);     // Add a recipient
 	//$mail->addAddress('ellen@example.com');               // Name is optional
 	//$mail->addReplyTo('info@example.com', 'Information');
@@ -37,7 +37,7 @@ function sendAlerts() {
 		echo "Home: ".isset($alerts['home'])."<br />\n";
 	}
 
-	$message = "(idolpx Installer)\n";
+	$message = "(Kodi Build Installer)\n";
 	if(isset($alerts['blocked'])) {
 		$message .= "[Blocked]\n";
 		foreach ($alerts['blocked'] as $key => $value) {

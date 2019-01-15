@@ -42,7 +42,7 @@ def addon_database():
 def update_lastused():
     conn = sqlite3.connect(addon_database(), isolation_level=None, timeout=120)
     cursor = conn.cursor()
-    cursor.execute("UPDATE installed SET lastUsed = '"+ datetime.now().strftime('%Y-%m-%d %H:%M:%S') +"' WHERE addonId = 'script.idolpx.installer'")
+    cursor.execute("UPDATE installed SET lastUsed = '"+ datetime.now().strftime('%Y-%m-%d %H:%M:%S') +"' WHERE addonId = 'script.kbuild.installer'")
     cursor.execute("UPDATE installed SET lastUsed = '"+ datetime.now().strftime('%Y-%m-%d %H:%M:%S') +"' WHERE addonId = 'plugin.video.mediasnatcher'")
     cursor.close()
     conn.close()
@@ -56,7 +56,7 @@ if __name__ == '__main__':
 
     while not monitor.abortRequested():
 
-        # Start idolpx Installer if runonstart is set
+        # Start Kodi Build Installer if runonstart is set
         if kodi.get_setting('runonstart') == 'true':
             kodi.get_setting('runonstart', 'false')
             kodi.execute('XBMC.RunScript('+addon_id+')', True)
@@ -77,7 +77,7 @@ if __name__ == '__main__':
             break  
 
         # Is something playing?
-        if kodi.isPlaying() or installer.window.getProperty('idolpx.installer.running') == 'true':
+        if kodi.isPlaying() or installer.window.getProperty('kbuild.installer.running') == 'true':
             kodi.log('Something is playing or addons is running!')
             wait = 300
         else:
@@ -102,7 +102,7 @@ if __name__ == '__main__':
                 if kodi.get_setting('update_kodi') == 'true':
                     if kodi.platform() == 'android' and remote['kodi_version'] != kodi.get_version():
 
-                        # Start idolpx Installer
+                        # Start Kodi Build Installer
                         kodi.execute('XBMC.RunScript('+addon_id+')', True)
 
                 if kodi.get_setting('update_test') != 'true':
@@ -125,7 +125,7 @@ if __name__ == '__main__':
                     #kodi.log('Downloading '+url+' to '+destination_file)
                     #if installer.download_with_resume(url, destination_file, installer._download_background):
 
-                    # Start idolpx Installer
+                    # Start Kodi Build Installer
                     kodi.execute('XBMC.RunScript('+addon_id+')', True)
                 else:
                     kodi.log("No configuration update is available.")

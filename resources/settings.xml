@@ -20,6 +20,6 @@
 		<setting id="update_url" type="text" label="Update URL" default="http://yourdomain.com/kodi/version.php"/>
 		<setting id="update_test" type="bool" label="Select Test Configuration" default="false"/>
 		<setting type="sep"/>
-		<setting id="backup" type="action" label="Backup Current Configuration" action="RunScript(script.idolpx.installer,backup)"/>
+		<setting id="backup" type="action" label="Backup Current Configuration" action="RunScript(script.kbuild.installer,backup)"/>
 	</category>
 </settings>

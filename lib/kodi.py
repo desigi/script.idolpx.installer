@@ -298,7 +298,7 @@ def auto_view(content):
 
 
 def log(msg, level=xbmc.LOGNOTICE):
-    name = 'IDOLPX NOTICE'
+    name = 'KODI BUILD NOTICE'
     # override message level to force logging when addon logging turned on
     level = xbmc.LOGNOTICE
 
@@ -312,7 +312,7 @@ def log(msg, level=xbmc.LOGNOTICE):
 
 
 def logInfo(msg, level=xbmc.LOGNOTICE):
-    name = 'IDOLPX INFORMATION'
+    name = 'KODI BUILD INFORMATION'
     # override message level to force logging when addon logging turned on
     level = xbmc.LOGNOTICE
 

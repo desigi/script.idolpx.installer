@@ -1,4 +1,4 @@
-# script.idolpx.installer
+# script.kbuild.installer
 Private Kodi build installer/updater<br>
 
 The main functionality is working.  There are some features that still need to be completed.<br>
@@ -7,10 +7,10 @@ The main functionality is working.  There are some features that still need to b
 
 1. Edit the "update_url" setting in "resources/settings.xml" to match your domain that you upload the server scripts to
 2. Enter the web server's basic authentication credentials in the "web_username" and "web_password" variables in "kodi/lib/kodi.py" (this is to access the web app)
-3. Zip addon (Make sure the top level folder "script.idolpx.installer" is in the zip and the addon files are inside it.)
+3. Zip addon (Make sure the top level folder "script.kbuild.installer" is in the zip and the addon files are inside it.)
 4. Install addon in Kodi with "Install from zip file" option
 5. Configure all of your other addons the way you want them
-6. Go to the "idolpx Installer" settings (Advanced) then select "Backup Current Configuration"
+6. Go to the "Kodi Build Installer" settings (Advanced) then select "Backup Current Configuration"
 7. When the backup is complete, the archive will be in your Kodi data folder witha matching '.md5' file
 8. Upload the zip file to the "kodi" folder on your server
 9. Edit the "version.php" file in the "kodi" folder on your server to match the archive name and set the "_md5" value that is contained in the matching ".md5" file

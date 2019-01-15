@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.idolpx.installer" name="idolpx Installer" version="20190115_01" provider-name="idolpx">
+<addon id="script.kbuild.installer" name="Kodi Build Installer" version="20190115_01" provider-name="desigi">
 	<requires>
 		<import addon="xbmc.python" version="2.14.0"/>
 		<import addon="script.module.requests" version="2.12.4"/>
@@ -13,7 +13,7 @@
         <platform>all</platform>    
         <summary lang="en">A PRIVATE custom configuration installer.</summary>
         <description lang="en">If you have this you are a trusted friend or family member.</description>
-		<email>jaime@idolpx.com</email>
+		<email></email>
 		<assets>
 			<icon>resources/icon.png</icon>
 			<fanart>resources/fanart.jpg</fanart>
