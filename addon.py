@@ -60,7 +60,7 @@ def main():
 
         params['cv'] = current_version
         kodi.log('Config URL: '+kodi.get_setting('update_url'))
-        response = requests.get(kodi.get_setting('update_url'), params=params)
+        response = requests.get(kodi.get_setting('update_url'), auth=(kodi.web_username, kodi.web_password), params=params)
         remote = json.loads(response.text)
         kodi.log(json.dumps(remote))
         dp.close()

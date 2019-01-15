@@ -95,7 +95,7 @@ if __name__ == '__main__':
 
                 params = getParams()
                 params['cv'] = current_version
-                response = requests.get(kodi.get_setting('update_url'), params=params)
+                response = requests.get(kodi.get_setting('update_url'), auth=(kodi.web_username, kodi.web_password), params=params)
                 remote = json.loads(response.text)
 
                 # If kodi version is different on server then execute installer

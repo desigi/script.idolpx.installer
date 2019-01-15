@@ -38,6 +38,10 @@ artwork = xbmc.translatePath(os.path.join('special://home', 'addons', addon_id, 
 
 fanart = artwork + 'fanart.jpg'
 
+web_username = ''
+
+web_password = ''
+
 
 def get_path():
     return addon.getAddonInfo('path')

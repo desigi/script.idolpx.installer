@@ -18,7 +18,7 @@ def size_format(num):
 
 #****************************************************************
 def installConfig(url, hash=None):
-    path = xbmc.translatePath(os.path.join('special://', 'home'))
+    path = xbmc.translatePath(os.path.join('special://home'))
     filename = url.split('/')[-1]
     destination_file = os.path.join(path, filename)
 
@@ -308,7 +308,8 @@ def download_with_resume(url, file_path, callback=None, hash=None, timeout=10):
         file_mode = 'ab' if first_byte else 'wb'
         file_size = -1
 
-        file_size = int(requests.head(url).headers['Content-length'])
+        req = requests.get(url, auth=(kodi.web_username, kodi.web_password))
+        file_size = int(req.headers['Content-length'])
         kodi.log('File size is %s' % file_size)
         kodi.log('Starting at %s' % first_byte)
         kodi.log('File Mode %s' % file_mode)
@@ -320,7 +321,7 @@ def download_with_resume(url, file_path, callback=None, hash=None, timeout=10):
             first_byte = 0
 
         headers = {"Range": "bytes=%s-" % first_byte}
-        r = requests.get(url, headers=headers, stream=True)
+        r = requests.get(url, auth=(kodi.web_username, kodi.web_password), headers=headers, stream=True)
         with open(tmp_file_path, file_mode) as f:
             for chunk in r.iter_content(chunk_size=block_size): 
                 if chunk: # filter out keep-alive new chunks
