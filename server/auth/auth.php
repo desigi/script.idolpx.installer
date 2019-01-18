@@ -73,7 +73,7 @@
 	if(isset($alerts['blocked']) || isset($alerts['unknown']))
 		sendAlerts();
 	
-	Block anyone that is not Authorized
+	// Block anyone that is not Authorized
 	if($devices[$mac]['status'] != 1)
 		exit();
 ?>
