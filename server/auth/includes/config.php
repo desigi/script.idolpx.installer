@@ -4,16 +4,16 @@ session_start();
 header("Access-Control-Allow-Origin: *");
 
 // Set your admin password here
-$password = 'password';
+//$password = 'password';
 
 // Check Authentication Password
-if (isset($_POST['a'])) {
-	if ($_POST['a'] == $password) {
-		$_SESSION['authenticated'] = true;
-	} else {
-		$_SESSION['authenticated'] = false;
-	}
-}
+//if (isset($_POST['a'])) {
+//	if ($_POST['a'] == $password) {
+//		$_SESSION['authenticated'] = true;
+//	} else {
+//		$_SESSION['authenticated'] = false;
+//	}
+//}
 
 // Application Variables
 $isWindows = false;

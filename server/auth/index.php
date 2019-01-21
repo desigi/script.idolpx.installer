@@ -9,11 +9,11 @@
 	//$log->info('Returned a million search results'); echo 'ok!'; exit();
 	//sendAlerts(); exit();
 	
-	if(!$_SESSION['authenticated']) {
-		$log->info("[authentication][".$_SERVER['REMOTE_ADDR']."], [".$_GET."]");
-		header('Location: login.php');
-		die();
-	}
+	//if(!$_SESSION['authenticated']) {
+	//	$log->info("[authentication][".$_SERVER['REMOTE_ADDR']."], [".$_GET."]");
+	//	header('Location: login.php');
+	//	die();
+	//}
 	
 	$devices = array();
 	if (file_exists($data."devices.json"))
