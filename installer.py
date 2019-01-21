@@ -162,11 +162,11 @@ def installConfig(url, hash=None):
 
 def createConfig():
     source = [xbmc.translatePath(os.path.join('special://home', 'addons'))]
-    source.append(xbmc.translatePath(os.path.join('special://', 'userdata')).rstrip('/'))
+    source.append(xbmc.translatePath(os.path.join('special://', 'userdata')).rstrip(os.sep))
 
     path = xbmc.translatePath(os.path.join('special://','home'))
     version = time.strftime("%Y%m%d_%H%M")
-    destination_file = 'kodi.'+time.strftime("%Y%m%d_%H%M")+'.zip'
+    destination_file = 'kodi.'+version+'.zip'
     
     # Update version.json file
     current = json.loads('{"config_version": "'+version+'","test_version": "'+version+'"}')
@@ -436,7 +436,7 @@ def zip(_in, _out, exclusions):
         zip_file.close()
 
 def unzip(_in, _out):
-    zin = _in.split('/')[-1]
+    zin = _in.split(os.sep)[-1]
     zip_file = zipfile.ZipFile(_in, 'r')
     nFiles = float(len(zip_file.infolist()))
     count = 0
